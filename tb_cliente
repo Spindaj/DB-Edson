@@ -1,0 +1,32 @@
+create database bdClientes
+use bdClientes
+
+create table tbclientes
+(
+	idcliente int(4) auto_increment not null primary key,
+    nome varchar (60) not null ,
+    cidade varchar (30) not null,
+    uf char (2) not null,
+    contato varchar (15) not null,
+    email varchar (30) null,
+    situacao char (1) default'A'
+)
+
+insert into tbclientes (nome, cidade, uf, contato, email)
+values ('João Pedro Spinda', 'Viradouro', 'SP', '(17) 99117-5810', 'jaopedrospindaaa@gmail.com')
+
+insert into tbclientes (nome, cidade, uf, contato, email)
+values ('Vinícius Guedes', 'Viradouro','SP', '(17) 99569-383', 'vinigudes@gmail.com') 
+
+insert into tbclientes (nome, cidade, uf, contato, email)
+values ('João Pedro de Lima', 'Viradouro','SP', '(17) 99037-5810', 'lima1235@gmail.com') 
+
+insert into tbclientes (nome, cidade, uf, contato, email)
+values ('João Pedro Spera', 'Bebedouro','SP', '(17) 99344-0317', 'sperajoao@gmail.com') 
+
+select idcliente, nome, cidade from tbclientes
+select * from tbclientes
+select idcliente, nome, email from tbclientes order by nome desc
+select * from tbclientes where idcliente = 1
+select * from tbclientes where idcliente = 2 and cidade = 'Viradouro'
+update tbclientes set cidade = 'Terra Roxa' where idcliente = 4
