@@ -1,0 +1,45 @@
+create database BdFluxo
+
+use BdFluxo
+
+create table TbEmpresas
+(
+	idEmpresa int(4) auto_increment not null primary key,
+    Nome_Empresa varchar (40) not null,
+    CNPJ int(18) not null,
+    cidade varchar(40) not null,
+    contato varchar(15) not null,
+    email varchar(30) null,
+    situacao char(1) default'A'
+)
+
+insert into TbEmpresas (Nome_Empresa, CNPJ, cidade, contato, email)
+values ('Amazon', '15.326.063/0001-00', 'São Paulo', '(17) 99023-5810', 'amamazon@gmail.com')
+values ('Americanas', '98.513.620/0001-00', 'Paris', '(17) 98702-5144', 'europeans@gmail.com')
+values ('C&A', '76.088.012/0002-00', 'Rio de Janeiro', '(11) 88315-0230', 'ceea@gmail.com')
+values ('Boticario', '72.107.735/0006-00', 'Coritiba', '(23) 34713-5724', 'oboticario@gmail.com')
+values ('HiHappy', '67.458.751/0007-00', 'Fortaleza', '(31) 94275-3935', 'rirrapi@gmail.com')
+
+create table Fluxo_Caixa
+(
+	idFluxo int(4) auto_increment not null primary key,
+    idfluxo_empresa int(4),
+    Data date not null,
+    Valor decimal(10,2),
+    descricao varchar(80),
+    situacao char(2),
+    foreign key (idfluxo_empresa) references TbEmpresas (idEmpresa)
+)
+
+insert into Fluxo_Caixa (Data, Valor, descricao, situacao)
+values ('05/06/2020', '200000.00', 'Venda onlide de produtos', 'P')
+insert into Fluxo_Caixa (Data, Valor, descricao, situacao)
+values ('15/01/2022', '300000.00', 'Venda eletrodomésticos', 'NP')
+insert into Fluxo_Caixa (Data, Valor, descricao, situacao)
+values ('16/02/2017', '149999.99', 'Venda de produtos cotidianos', 'P')
+insert into Fluxo_Caixa (Data, Valor, descricao, situacao)
+values ('04/11/2015', '3000000.00', 'Venda de roupas', 'NP')
+insert into Fluxo_Caixa (Data, Valor, descricao, situacao)
+values ('30/09/2019', '599999.99', 'Venda de produtos de beleza', 'NP')
+insert into Fluxo_Caixa (Data, Valor, descricao, situacao)
+values ('29/10/2009', '10000.00', 'Venda de brinquedos infantojuvenis', 'P')
