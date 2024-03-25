@@ -1,0 +1,22 @@
+create database bdcooks
+
+use bdcooks
+
+create table tbprodutos
+(
+idproduto int(5) not null,
+descricao varchar(80) not null,
+estoque decimal(8) not null
+)
+
+/*Definição da chave priméria*/
+alter table tbprodutos add primary key (idproduto)
+
+/*Definindo a coluna idprodutos como auto_increment*/
+alter table tbprodutos modify idproduto int(5) auto_increment
+
+/*Auterando o tamanho da coluna descrição para varchar(100)*/
+alter table tbprodutos modify descricao varchar(100)
+
+/*Alterando o tamanho da coluna estoque para decimal(8,2)*/
+alter table tbprodutos modify estoque decimal(8,2)
