@@ -40,3 +40,9 @@ values ('Refrigerante', 35, 5, 3, 8, 'Poty')
 
 /*Editando os valores das linhas das colunas*/
 update tbprodutos set valor_custo = 3, margem = 2, valor_venda = 5 where idproduto = 1
+
+/*Exibindo os produtos em estoque no mínimo 20 e máximo 30*/
+select * from tbprodutos where estoque between 20 and 30
+
+/*Exibindo somente os produtos que contém caixa*/
+select * from tbprodutos where descricao like '%caixa%'
