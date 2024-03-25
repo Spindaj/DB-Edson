@@ -46,3 +46,22 @@ select * from tbprodutos where estoque between 20 and 30
 
 /*Exibindo somente os produtos que contém caixa*/
 select * from tbprodutos where descricao like '%caixa%'
+
+create table tbgrupos
+(
+idgrupo int(5) not null primary key auto_increment,
+grupo varchar(100) not null
+)
+
+alter table tbprodutos add column idproduto_grupo int(5)
+
+insert into tbgrupos (grupo)
+values ('Alimento')
+
+insert into tbgrupos (grupo)
+values ('Vestuário')
+
+insert into tbgrupos (grupo)
+values ('Material Escolar')
+
+alter table tbprodutos add foreign key(idproduto_grupo) references tbgrupos(idgrupo)
