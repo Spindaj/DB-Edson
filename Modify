@@ -15,8 +15,11 @@ alter table tbprodutos add primary key (idproduto)
 /*Definindo a coluna idprodutos como auto_increment*/
 alter table tbprodutos modify idproduto int(5) auto_increment
 
-/*Auterando o tamanho da coluna descrição para varchar(100)*/
+/*Alterando o tamanho da coluna descrição para varchar(100)*/
 alter table tbprodutos modify descricao varchar(100)
 
 /*Alterando o tamanho da coluna estoque para decimal(8,2)*/
 alter table tbprodutos modify estoque decimal(8,2)
+
+/*Adicionando colunas*/
+alter table tbprodutos add column valor_custo decimal(10,2)
