@@ -23,3 +23,7 @@ alter table tbprodutos modify estoque decimal(8,2)
 
 /*Adicionando colunas*/
 alter table tbprodutos add column valor_custo decimal(10,2)
+alter table tbprodutos add column margem decimal(6,2)
+alter table tbprodutos add column valor_venda decimal(10,2)
+alter table tbprodutos add column marca varchar(100)
+alter table tbprodutos add column situacao char(1) default 'A'
