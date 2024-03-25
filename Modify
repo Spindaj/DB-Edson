@@ -27,3 +27,16 @@ alter table tbprodutos add column margem decimal(6,2)
 alter table tbprodutos add column valor_venda decimal(10,2)
 alter table tbprodutos add column marca varchar(100)
 alter table tbprodutos add column situacao char(1) default 'A'
+
+/*Inserindo linhas na tabela de produtos*/
+insert into tbprodutos (descricao, estoque, valor_custo, margem, valor_venda, marca)
+values ('Caixa de leite', 50, 1.50, 1, 2.50, 'Jussara')
+insert into tbprodutos (descricao, estoque, valor_custo, margem, valor_venda, marca)
+values ('Café', 30, 10, 5, 15,'3 Coração')
+insert into tbprodutos (descricao, estoque, valor_custo, margem, valor_venda, marca)
+values ('Lasanha Congelada', 25, 8, 7.50, 15.50, 'Seara')
+insert into tbprodutos (descricao, estoque, valor_custo, margem, valor_venda, marca)
+values ('Refrigerante', 35, 5, 3, 8, 'Poty')
+
+/*Editando os valores das linhas das colunas*/
+update tbprodutos set valor_custo = 3, margem = 2, valor_venda = 5 where idproduto = 1
