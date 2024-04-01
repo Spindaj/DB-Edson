@@ -1,0 +1,65 @@
+create database bdLivro
+
+use bdLivro
+
+create table autor
+(
+	idautor int(4) auto_increment not null primary key,
+    autor varchar(50) not null,
+    email varchar(40) not null,
+    cidade varchar(30) not null,
+    situacao char(1) default'A'
+)
+
+insert into autor (autor, email, cidade)
+values ('Ronaldo de Azevedo', 'ronaldoDazevedo@hotmail.com', 'Jundiaí')
+
+insert into autor (autor, email, cidade)
+values ('Gustavo de Jesus', 'gJesus@gmai.com','Araraquára')
+
+insert into autor (autor, email, cidade)
+values ('Pedro Guanabara', 'guanaPedro@gmail.com', 'Uberaba')
+
+create table livros
+(
+	idlivro int(4) auto_increment not null primary key,
+    idlivro_autor int(4),
+    livro varchar(40) not null,
+    editora varchar(50) not null,
+    numero_paginas int(100) not null,
+    versao int(10) not null,
+    preco_unitario decimal(10) not null,
+    situacao char(1) default'A',
+    foreign key (idlivro_autor) references autor (idautor)
+)
+
+alter table livros modify preco_unitario decimal(10,2)
+
+insert into livros (livro, editora, numero_paginas, versao, preco_unitario)
+values ('Cobra Cega', 'Editora 1', 150, 1, 25.60)
+
+insert into livros (livro, editora, numero_paginas, versao, preco_unitario)
+values ('Ferro Ferrugem', 'Editora 1', 100, 2, 30)
+
+insert into livros (livro, editora, numero_paginas, versao, preco_unitario)
+values ('Onde Vivem os Monstros', 'Editora 3', 250, 2, 44.99)
+
+insert into livros (livro, editora, numero_paginas, versao, preco_unitario)
+values ('Filosofia das Cores', 'Editora 2', 75, 1, 19.99)
+
+insert into livros (livro, editora, numero_paginas, versao, preco_unitario)
+values ('O Preço da Felicidade', 'Editora 3', 200, 3, 39.99)
+
+update livros set situacao = 'C' where idlivro = 2
+update livros set situacao = 'I' where idlivro = 4
+update livros set situacao = 'I' where idlivro = 5
+
+select * from autor where cidade like '%Jundiaí%'
+select * from autor where autor like '%Pedro%'
+
+select * from livros where editora like '%Editora 2%'
+select * from livros where editora like '%Editora 1%'
+
+select * from livros where situacao like '%A%'
+select * from livros where situacao like '%I%'
+select * from livros where situacao like '%C%'
