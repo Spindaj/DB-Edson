@@ -9,16 +9,29 @@
     <style>
         table {
             width:700px;
+            }
 
-            th, td {
-                border:1px dashed;
-                padding: 3px;
-            }
-            th {
-                background-color: green;
-                color: white;
-                font-weight: 800;
-            }
+        th, td {
+            border:1px dashed;
+            padding: 3px;
+        }
+
+        th {
+            background-color: green;
+            color: white;
+            font-weight: 800;
+        }
+
+        td:hover{
+            background-color: yellow;
+        }
+
+        a{
+            font-family: 'Courier New';
+        }
+
+        a:link{
+            text-decoration: none;
         }
     </style>
 </head>
