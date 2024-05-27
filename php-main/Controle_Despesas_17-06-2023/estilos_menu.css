@@ -1,0 +1,29 @@
+body {
+    width:1000px; /* Largura da página */
+    margin:auto; /* Centraliza todo o conteúdo da página */
+}
+.menu {
+    background-color:#333;
+}
+.menu ul {
+    margin:0;
+    padding:0;
+    list-style: none; /* Oculta os marcadores */
+}
+.menu ul li {
+    display:inline-block;
+}
+.menu ul li a {
+    color:white;
+    text-decoration: none;
+    padding:10px 20px;
+    display:block;
+}
+.menu ul li a:hover {
+    background-color: #44b15a;
+}
+h3 {
+    text-align: center;
+    font-size:1.6em;
+    color:cornflowerblue;
+}

@@ -1,0 +1,47 @@
+<p class="text-primary text-center" Pesquisar Produtos</p>
+
+            <?php
+            require "conexao.php";
+            $lista = []; //INICIALIZA O VETOR $lista
+            $sql = $conexao->query("SELECT * FROM tbprodutos ORDER BY idprodutos");
+
+            if ($sql->rowCount() > 0) // SE ENCONTROU PELO MENOS 1 LINHA
+            {
+                $lista = $sql->fetchALL(PDO::FETCH_ASSOC);
+            }
+            ?>
+
+
+        <table border='1' align='center' class='text-center'>
+            <tr>
+                <th>ID</th>
+                <th>Nome Produto</th>
+                <th>Preço</th>
+                <th>Quantidade</th>
+                <th>Data Compra</th>
+
+            </tr>
+
+
+            <?php
+            foreach ($lista as $Nome_Produto) : ?>
+
+                <tr>
+                    <td><?php echo $Nome_Produto['idprodutos'] ?></td>
+
+                    <td><?php echo $Nome_Produto['nomeproduto'] ?></td>
+
+                    <td><?php echo $Nome_Produto['preco'] ?></td>
+
+                    <td><?php echo $Nome_Produto['quantidade'] ?></td>
+
+                    <td><?php echo $Nome_Produto['datacompra'] ?></td>
+                </tr>
+
+
+                </form>
+
+
+            <?php endforeach; ?>
+
+        </table>

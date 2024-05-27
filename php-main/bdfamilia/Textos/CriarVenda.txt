@@ -1,0 +1,69 @@
+ <table border='1' align='center' class='text-center'>
+            <tr>
+                <th>ID Venda</th>
+                <th>ID Cliente</th>
+                <th>Data Lançamento</th>
+                <th>Nome do produto</th>
+
+
+            </tr>
+
+
+            <?php
+            foreach ($lista as $Criar_Venda) : ?>
+
+                <tr>
+                    <td><?php echo $Criar_Venda['idvenda'] ?></td>
+
+                    <td><?php echo $Criar_Venda['id_cliente'] ?></td>
+
+                    <td><?php echo $Criar_Venda['datalancamento'] ?></td>
+
+                    <td><?php echo $Criar_Venda['nomeproduto'] ?></td>
+
+
+                </tr>
+
+
+
+
+        </table>
+
+
+        <?php
+                if (isset($_POST["cadastrar"])) {
+                    require "conexao.php"; //CHAMA O NEGÓCIO LÁ O BANCO DE DADOS
+
+                    $idvenda = filter_input(INPUT_POST, 'idvenda');
+                    $nomeproduto = filter_input(INPUT_POST, 'nomeproduto');
+                    $datacompra = filter_input(INPUT_POST, 'datacompra');
+
+                    $sql = $conexao->prepare("INSERT INTO tbcadastro (idvenda, nomeproduto, datacompra) VALUES (:idvenda, :nomeproduto, :datacompra)");
+
+                    $sql->bindValue(':idvenda', $idvenda);
+                    $sql->bindValue(':nomeproduto', $nomeproduto);
+                    $sql->bindValue(':datacompra', $datacompra);
+
+
+                    $sql->Execute();
+
+                    echo "<p class='text-center'>Comanda Cadastrada com sucesso</p>";
+                }
+        ?>
+
+    <?php endforeach; ?>
+
+    </table>
+
+
+    <p>
+        <input type="submit" name="cadastrar" value="Salvar" class="btn btn-primary">
+
+
+
+
+
+    </p>
+
+    <p> <a href="principal.html" class="btn btn-primary ">Voltar</a></p>
+    </form>
