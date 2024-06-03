@@ -17,6 +17,17 @@
         <form name="comissao" method="post" action="">
             <p>
                 <label>Vendedor:</label><br>
+                                <select name="IDVendedor" id="IDVendedor">
+                    <?php
+                    require "conexao.php";
+                    $pesquisa = "SELECT * FROM tbvendedor ORDER BY vendedor";
+                    $sql = mysqli_query($conexao, $pesquisa) or die (mysqli_error($conexao));
+
+                    while ($campo = mysqli_fetch_ro($sql)) {
+                        echo "<option value=$campo[0] > $campo[1] </option>";
+                    }
+                    ?>
+                </select>
                 <input type="number" name="vendedor" size="4" maxlength="4" required>
             </p>
             <p>
